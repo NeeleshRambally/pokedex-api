@@ -20,36 +20,19 @@ import java.util.function.Function;
 @Configuration
 @RequiredArgsConstructor
 public class SwaggerConfig implements WebMvcConfigurer {
+    public static final String TAG_POKEDEX_SERVICE = "v1";
 
-    public static final String TAG_PIPE_SERVICE_V1 = "v1";
-    public static final String TAG_ORDERS = "Order Service";
-    public static final String TAG_PLANNED_ORDERS = "Planned Orders Service";
-    public static final String TAG_REVISION_MANAGER = "Revision Manager Service";
-    public static final String TAG_DICE_TOOLS = "Dice Service";
-    public static final String TAG_CLEANUP = "Clean Up Service";
-    public static final String TAG_CONFIGURABLE_PROPERTY_SERVICE = "Configurable Property Service";
-    public static final String TAG_HEALTH = "Health Service";
-    public static final String TAG_MASTER_DATA = "Master Data Service";
-    public static final String TAG_SWAP = "Swap Service";
-    protected static final String ZA_PIPE_LIST_BMW_COM = "ZA-PIPE@list.bmw.com";
+    protected static final String ZA_POKEMON_MASTER = "ramballyn@gmail.com";
 
+    public static final String TAG_POKEDEX = "getByName";
     final String[] displayTagOrder = {
-        TAG_ORDERS,
-        TAG_PLANNED_ORDERS,
-        TAG_REVISION_MANAGER,
-        TAG_DICE_TOOLS,
-        TAG_CLEANUP,
-        TAG_CONFIGURABLE_PROPERTY_SERVICE,
-        TAG_MASTER_DATA,
-        TAG_HEALTH
+            TAG_POKEDEX
     };
-
-
 
     @Bean
     public GroupedOpenApi landingPageApiV1() {
         return GroupedOpenApi.builder()
-                .group(TAG_PIPE_SERVICE_V1)
+                .group(TAG_POKEDEX_SERVICE)
                 .addOpenApiCustomiser(openApi -> {
                     openApi.addSecurityItem(new SecurityRequirement().addList(HttpHeaders.AUTHORIZATION));
                     openApi.setTags(getOrderedByKey(openApi.getTags(), Tag::getName, displayTagOrder));
@@ -58,7 +41,9 @@ public class SwaggerConfig implements WebMvcConfigurer {
     }
 
     private Info getApiInfo() {
-        return new Info().version("12").title("PIPE").description("PIPE Central Ordering Integrated Pipeline").contact(new Contact().email(ZA_PIPE_LIST_BMW_COM).name("Developer Team"));
+        return new Info().version("1").title("Pokedex")
+                .description("For Fun...")
+                .contact(new Contact().email(ZA_POKEMON_MASTER).name("Neelesh Rambally"));
     }
 
     private <T> List<T> getOrderedByKey(List<T> origList, Function<T, String> provideKey, String[] keyOrder) {
