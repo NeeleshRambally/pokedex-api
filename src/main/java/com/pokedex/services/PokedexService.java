@@ -21,7 +21,7 @@ public class PokedexService {
      * Get pokemon by name
      */
     public Optional<PokemonBE> getPokemonByName(String pokemonName) {
-        val pokemon = db.pokemonRepository().findById(pokemonName);
+        val pokemon = db.pokemonRepository().findById(pokemonName.toLowerCase());
         return pokemon;
     }
 
