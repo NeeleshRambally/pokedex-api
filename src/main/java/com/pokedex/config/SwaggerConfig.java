@@ -58,7 +58,7 @@ public class SwaggerConfig implements WebMvcConfigurer {
     }
 
     private Info getApiInfo() {
-        return new Info().version("1").title("PIPE").description("PIPE Central Ordering Integrated Pipeline").contact(new Contact().email(ZA_PIPE_LIST_BMW_COM).name("Developer Team"));
+        return new Info().version("12").title("PIPE").description("PIPE Central Ordering Integrated Pipeline").contact(new Contact().email(ZA_PIPE_LIST_BMW_COM).name("Developer Team"));
     }
 
     private <T> List<T> getOrderedByKey(List<T> origList, Function<T, String> provideKey, String[] keyOrder) {
