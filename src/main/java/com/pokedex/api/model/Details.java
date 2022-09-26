@@ -17,4 +17,10 @@ public class Details {
 
     @JsonProperty(value = "abbilities")
     private Set<Abbility> abbilities;
+
+    @JsonProperty(value = "imageURL")
+    private String imageURL;
+
+    @JsonProperty(value = "name")
+    private String name;
 }
