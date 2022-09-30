@@ -12,5 +12,5 @@ All servces have been deployed to HEROKU Cloud service and are part of a CI/CD p
 
 Future implmentations : 
 
-API GATEWAY 
-ENABLE CLOUD APP DISCOVERY 
+1.API GATEWAY 
+2.ENABLE CLOUD APP DISCOVERY 
