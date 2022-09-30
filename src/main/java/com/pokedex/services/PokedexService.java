@@ -19,7 +19,7 @@ public class PokedexService {
     private final Db db;
 
     /**
-     * Get pokemon by name
+     * Get pokemon by name  - aka search
      */
     public Optional<PokemonBE> getPokemonByName(String pokemonName) {
         val pokemon = db.pokemonRepository().findById(pokemonName.toLowerCase());
@@ -29,6 +29,7 @@ public class PokedexService {
     /**
      * Get list of all pokemon
      * Paginated , limited to 100 at a time
+     * TODO : Sort results to enable consistent pages each time.
      */
     public Page<PokemonBE> getAllPokemon(int page, int limit) {
         if (limit > 100) {
