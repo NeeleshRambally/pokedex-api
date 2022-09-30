@@ -46,6 +46,8 @@ public class PokedexApiServiceTests extends AbstractIT {
         assertEquals("TestImageUrl", responseFromGetNameAndImage.get(0).getImageURL());
     }
 
+    //TODO: Add more test cases ..
+
 
     @AfterEach
     protected void after() {

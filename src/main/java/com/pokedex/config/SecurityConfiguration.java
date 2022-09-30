@@ -15,6 +15,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests()
             .antMatchers(publicEndpoints()).permitAll();
+        //TODO ADD JWT TOKEN INTEGRATION FOR END POINTS.
     }
     private String[] publicEndpoints() {
         return new String[]{
